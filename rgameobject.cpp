@@ -60,6 +60,8 @@ void RGameObject::addGamer(QString pName)
     RGamer* tGamer = new RGamer();
     tGamer->setName(pName);
     gamers().append(tGamer);
+
+    emit gamersChanged(m_gamers);
 }
 
 void RGameObject::onNewConnection()

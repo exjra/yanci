@@ -52,8 +52,8 @@ private:
     RGameClient* m_gameClient;
 
 signals:
-void gameChanged(RGameObject* game);
-void gameClientChanged(RGameClient* gameClient);
+    void gameChanged(RGameObject* game);
+    void gameClientChanged(RGameClient* gameClient);
 };
 
 #endif // RCONTROLLER_H

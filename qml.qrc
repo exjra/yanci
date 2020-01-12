@@ -9,5 +9,8 @@
         <file>qml/createGame.qml</file>
         <file>qml/gamePage.qml</file>
         <file>qml/Gamer.qml</file>
+        <file>qml/GamerResult.qml</file>
+        <file>qml/GamerResultProcessDialog.qml</file>
+        <file>qml/NewResultDialog.qml</file>
     </qresource>
 </RCC>

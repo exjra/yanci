@@ -13,12 +13,32 @@ void RController::createGame(QString pGameName, bool pIsPaired, QString pGamer1,
 
     game()->init(pGameName, pIsPaired);
 
-    if(pGamer1 != "")
-        game()->addGamer(pGamer1);
-    if(pGamer2 != "")
-        game()->addGamer(pGamer2);
+    QList<QObject*> tList;
+    {
+        RGamer* tGamer = new RGamer();
+        tGamer->setName(pGamer1);
+        tList.append(tGamer);
+    }
+
+    {
+        RGamer* tGamer = new RGamer();
+        tGamer->setName(pGamer2);
+        tList.append(tGamer);
+    }
+
     if(pGamer3 != "")
-        game()->addGamer(pGamer3);
+    {
+        RGamer* tGamer = new RGamer();
+        tGamer->setName(pGamer3);
+        tList.append(tGamer);
+    }
+
     if(pGamer4 != "")
-        game()->addGamer(pGamer4);
+    {
+        RGamer* tGamer = new RGamer();
+        tGamer->setName(pGamer4);
+        tList.append(tGamer);
+    }
+
+    game()->setGamers(tList);
 }

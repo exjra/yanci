@@ -1,10 +1,14 @@
 #include "rresultpart.h"
 
+#include <QDebug>
+
 RResultPart::RResultPart(QObject *parent) : QObject(parent)
 {
     qRegisterMetaType<RResultPart*>("RResultPart*");
 
-    setValue(0);
+    mIsFirstSet = true;
+    m_initialValue = 0;
+
     setDeleted(false);
     setChanged(false);
 }
@@ -19,8 +23,18 @@ void RResultPart::setValue(int value)
     if (m_value == value)
         return;
 
+    if(mIsFirstSet)
+    {
+        mIsFirstSet = false;
+
+        m_initialValue = value;
+        emit initialValueChanged(m_initialValue);
+    }
+
     m_value = value;
     emit valueChanged(m_value);
+
+    qDebug() << m_initialValue << m_value;
 }
 
 void RResultPart::setDeleted(bool deleted)

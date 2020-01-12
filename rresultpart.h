@@ -10,6 +10,7 @@ class RResultPart : public QObject
     Q_PROPERTY(int value READ value WRITE setValue NOTIFY valueChanged)
     Q_PROPERTY(bool deleted READ deleted WRITE setDeleted NOTIFY deletedChanged)
     Q_PROPERTY(bool changed READ changed WRITE setChanged NOTIFY changedChanged)
+    Q_PROPERTY(int initialValue READ initialValue NOTIFY initialValueChanged)
 
 public:
     explicit RResultPart(QObject *parent = nullptr);
@@ -24,6 +25,11 @@ public:
     bool changed() const
     {
         return m_changed;
+    }
+
+    int initialValue() const
+    {
+        return m_initialValue;
     }
 
 public slots:
@@ -47,10 +53,15 @@ private:
 
     bool m_changed;
 
+    int m_initialValue;
+
+    bool mIsFirstSet;
+
 signals:
     void valueChanged(int value);
     void deletedChanged(bool deleted);
     void changedChanged(bool changed);
+    void initialValueChanged(int initialValue);
 };
 
 Q_DECLARE_METATYPE(RResultPart*);

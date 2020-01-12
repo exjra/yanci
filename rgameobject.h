@@ -16,7 +16,7 @@ class RGameObject : public QObject
 
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
     Q_PROPERTY(bool isPaired READ isPaired WRITE setIsPaired NOTIFY isPairedChanged)
-    Q_PROPERTY(QList<RGamer*> gamers READ gamers WRITE setGamers NOTIFY gamersChanged)
+    Q_PROPERTY(QList<QObject*> gamers READ gamers WRITE setGamers NOTIFY gamersChanged)
 
 public:
     RGameObject();
@@ -35,7 +35,7 @@ public:
         return m_isPaired;
     }
 
-    QList<RGamer*> gamers() const
+    QList<QObject*> gamers() const
     {
         return m_gamers;
     }
@@ -59,7 +59,7 @@ public slots:
         emit isPairedChanged(m_isPaired);
     }
 
-    void setGamers(QList<RGamer*> gamers)
+    void setGamers(QList<QObject*> gamers)
     {
         if (m_gamers == gamers)
             return;
@@ -88,7 +88,7 @@ private:
 
     bool m_isPaired;
 
-    QList<RGamer*> m_gamers;
+    QList<QObject*> m_gamers;
 
 private slots:
     void whoAmI();
@@ -97,7 +97,7 @@ signals:
     void gameReady();
     void nameChanged(QString name);
     void isPairedChanged(bool isPaired);
-    void gamersChanged(QList<RGamer*> gamers);
+    void gamersChanged(QList<QObject*> gamers);
 };
 
 Q_DECLARE_METATYPE(RGameObject*);

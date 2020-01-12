@@ -32,7 +32,7 @@ ApplicationWindow {
 
     Drawer {
         id: drawer
-        width: window.width * 0.66
+        width: window.width * 0.44
         height: window.height
 
         Column {
