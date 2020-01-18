@@ -6,7 +6,7 @@ ApplicationWindow {
     visible: true
     width: 640
     height: 480
-    title: qsTr("Stack")
+    title: qsTr("Yancı v1.0.0")
 
     header: ToolBar {
         contentHeight: toolButton.implicitHeight

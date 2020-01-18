@@ -28,6 +28,7 @@ Page {
         onGameReady:{
             busyIndicator.running = false;
 
+            stackView.pop();
             stackView.push("qrc:/qml/gamePage.qml");
         }
     }
@@ -86,13 +87,13 @@ Page {
 
             onClicked: {
 
-                //test
-                gameName.text = "mygame";
-                gamer1.text = "gamer1";
-                gamer2.text = "gamer2";
-                gamer3.text = "gamer3";
-                gamer4.text = "gamer4";
-                //test
+//                //test
+//                gameName.text = "mygame";
+//                gamer1.text = "gamer1";
+//                gamer2.text = "gamer2";
+//                gamer3.text = "gamer3";
+//                gamer4.text = "gamer4";
+//                //test
 
                 if(gameName.text === "")
                     gameNameProblems.visible = true;

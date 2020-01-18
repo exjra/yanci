@@ -12,5 +12,6 @@
         <file>qml/GamerResult.qml</file>
         <file>qml/GamerResultProcessDialog.qml</file>
         <file>qml/NewResultDialog.qml</file>
+        <file>qml/GameSettings.qml</file>
     </qresource>
 </RCC>

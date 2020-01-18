@@ -13,6 +13,18 @@ RResultPart::RResultPart(QObject *parent) : QObject(parent)
     setChanged(false);
 }
 
+RResultPart::RResultPart(int pInitial, QObject *parent) : QObject(parent)
+{
+    qRegisterMetaType<RResultPart*>("RResultPart*");
+
+    mIsFirstSet = false;
+    m_initialValue = pInitial;
+    emit initialValueChanged(m_initialValue);
+
+    setDeleted(false);
+    setChanged(false);
+}
+
 int RResultPart::value() const
 {
     return m_value;

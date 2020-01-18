@@ -20,9 +20,32 @@ Page {
 
         Button {
             id: joinGame
+            visible: false
             text: "Oyuna Katıl"
             Layout.alignment: Qt.AlignHCenter
             font.pixelSize: Qt.application.font.pixelSize * 1.6
+        }
+
+        Button {
+            id: readGame
+            text: "Oyuna Devam"
+            Layout.alignment: Qt.AlignHCenter
+            font.pixelSize: Qt.application.font.pixelSize * 1.6
+
+            onClicked: {
+                controller.readGame();
+                stackView.pop();
+                stackView.push("qrc:/qml/gamePage.qml");
+                controller.refreshResults();
+            }
+        }
+
+        Button {
+            id: settings
+            text: "Oyun Ayarları"
+            Layout.alignment: Qt.AlignHCenter
+            font.pixelSize: Qt.application.font.pixelSize * 1.6
+            onClicked: stackView.push("qrc:/qml/GameSettings.qml")
         }
     }
 }

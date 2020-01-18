@@ -64,6 +64,15 @@ void RGameObject::addGamer(QString pName)
     emit gamersChanged(m_gamers);
 }
 
+void RGameObject::refreshResults()
+{
+    for(int t = 0; t<gamers().length(); t++)
+    {
+        RGamer* tGamer = (RGamer*) gamers().at(t);
+        tGamer->refreshResult();
+    }
+}
+
 void RGameObject::onNewConnection()
 {
     QTcpSocket* tSoc = mServer->nextPendingConnection();

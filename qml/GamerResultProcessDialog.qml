@@ -51,6 +51,8 @@ Dialog {
 
 //        mResult.setValue(parseInt(txtResultValue.text))
         mResult.setDeleted(swDelete.position > 0);
+
+        controller.refreshResults();
     }
 
     onRejected: {

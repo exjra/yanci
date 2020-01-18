@@ -8,11 +8,12 @@ Rectangle {
     property var mResult;
 
     Layout.fillWidth: true
+//    Layout.minimumHeight: 25
 
     border.width: 1
     color: "transparent"
     width: parent.width;
-    height: resultsList.height/5;
+    height: (resultsList.height/5) < 50 ? 50 : (resultsList.height/5);
 
     RowLayout{
         anchors.fill: parent

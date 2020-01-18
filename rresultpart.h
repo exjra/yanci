@@ -14,6 +14,7 @@ class RResultPart : public QObject
 
 public:
     explicit RResultPart(QObject *parent = nullptr);
+    explicit RResultPart(int pInitial, QObject *parent = nullptr);
 
     int value() const;
 

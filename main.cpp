@@ -5,6 +5,7 @@
 #include <QCommandLineParser>
 #include <QDebug>
 #include <QQmlContext>
+#include <QSettings>
 
 #include "rcontroller.h"
 
@@ -49,6 +50,34 @@ int main(int argc, char *argv[])
 //    }
 
     RController* controller = new RController();
+
+    QSettings tSettings;
+
+    int tValue = 0;
+
+    tValue = tSettings.value("normalDone").toInt();
+    if(tValue != 0)
+        controller->setNormalDone(tValue);
+    else
+        controller->setNormalDone(-100);
+
+    tValue = tSettings.value("okeyDone").toInt();
+    if(tValue != 0)
+        controller->setOkeyDone(tValue);
+    else
+        controller->setOkeyDone(-200);
+
+    tValue = tSettings.value("doubleOkeyDone").toInt();
+    if(tValue != 0)
+        controller->setDoubleOkeyDone(tValue);
+    else
+        controller->setDoubleOkeyDone(-300);
+
+    tValue = tSettings.value("directDone").toInt();
+    if(tValue != 0)
+        controller->setDirectDone(tValue);
+    else
+        controller->setDirectDone(-200);
 
     QQmlApplicationEngine engine;
 

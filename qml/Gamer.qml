@@ -13,6 +13,14 @@ Rectangle {
     border.width: 1
     color: "transparent"
 
+    Connections {
+        target: mGamer;
+
+        onResultsChanged: {
+            txtResult.text = mGamer.getTotalResult();
+        }
+    }
+
     ColumnLayout {
         anchors.fill: parent
 
@@ -44,6 +52,17 @@ Rectangle {
             Layout.fillWidth: true
             Layout.fillHeight: true
 
+            Layout.alignment: Qt.AlignHCenter
+
+            Label {
+                id: txtResult
+                text: ""
+                Layout.alignment: Qt.AlignHCenter
+                font.pixelSize: Qt.application.font.pixelSize * 1.6
+                horizontalAlignment: Qt.AlignHCenter
+                color: "yellow"
+            }
+
             Button {
                 text: "Sonuç Ekle"
 
@@ -51,10 +70,19 @@ Rectangle {
                     mGamer.clearNewNumberList();
                     gameMainPage.openNewResultDialog(mGamer);
                 }
+                Layout.alignment: Qt.AlignHCenter
+                font.pixelSize: Qt.application.font.pixelSize * 1
             }
 
             Button {
-                text: "Ceza Ekle"
+                text: "Bitiş Ekle"
+
+                onClicked: {
+                    mGamer.clearNewNumberList();
+                    gameMainPage.openNewResultDialogFinishValue(mGamer);
+                }
+                Layout.alignment: Qt.AlignHCenter
+                font.pixelSize: Qt.application.font.pixelSize * 1
             }
         }
     }

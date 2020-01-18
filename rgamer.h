@@ -63,6 +63,11 @@ public slots:
         emit newNumbersChanged(m_newNumbers);
     }
 
+    void addNewResult(int pValue);
+    int getTotalResult();
+
+    void refreshResult();
+
 private:
     QString m_name;
     QList<QObject*> m_results;

@@ -25,8 +25,20 @@ Page {
 
     function openNewResultDialog(pGamer)
     {
+        newResultDialog.clearUi();
         newResultDialog.mGamer = pGamer;
         newResultDialog.visible = true;
+        newResultDialog.mIsValued = false;
+        newResultDialog.mIsFinished = false;
+    }
+
+    function openNewResultDialogFinishValue(pGamer)
+    {
+        newResultDialog.clearUi();
+        newResultDialog.mGamer = pGamer;
+        newResultDialog.visible = true;
+        newResultDialog.mIsValued = false;
+        newResultDialog.mIsFinished = true;
     }
 
     ColumnLayout {

@@ -3,65 +3,6 @@
 RGamer::RGamer()
 {
     qRegisterMetaType<RGamer*>("RGamer*");
-
-    QList<QObject*> tList;
-
-    {
-        RResultPart* tPart = new RResultPart();
-        tPart->setValue(100);
-
-        tList.append(tPart);
-    }
-    {
-        RResultPart* tPart = new RResultPart();
-        tPart->setValue(200);
-
-        tList.append(tPart);
-    }
-    {
-        RResultPart* tPart = new RResultPart();
-        tPart->setValue(300);
-
-        tList.append(tPart);
-    }
-    {
-        RResultPart* tPart = new RResultPart();
-        tPart->setValue(400);
-
-        tList.append(tPart);
-    }
-    {
-        RResultPart* tPart = new RResultPart();
-        tPart->setValue(500);
-
-        tList.append(tPart);
-    }
-    {
-        RResultPart* tPart = new RResultPart();
-        tPart->setValue(600);
-
-        tList.append(tPart);
-    }
-    {
-        RResultPart* tPart = new RResultPart();
-        tPart->setValue(700);
-
-        tList.append(tPart);
-    }
-    {
-        RResultPart* tPart = new RResultPart();
-        tPart->setValue(800);
-
-        tList.append(tPart);
-    }
-    {
-        RResultPart* tPart = new RResultPart();
-        tPart->setValue(900);
-
-        tList.append(tPart);
-    }
-
-    setResults(tList);
 }
 
 void RGamer::clearNewNumberList()
@@ -100,4 +41,36 @@ void RGamer::removeFromNewNumberList(int pIndex)
         mNewNumbers.removeAt(pIndex);
         setNewNumbers(tList);
     }
+}
+
+void RGamer::addNewResult(int pValue)
+{
+    QList<QObject*> tList(results());
+
+    RResultPart* tPart = new RResultPart();
+    tPart->setValue(pValue);
+
+    tList.append(tPart);
+
+    setResults(tList);
+}
+
+int RGamer::getTotalResult()
+{
+    int tRet = 0;
+
+    for(int t = 0; t<results().length(); t++)
+    {
+        RResultPart* tPart = (RResultPart*) results().at(t);
+
+        if(!tPart->deleted())
+            tRet += tPart->value();
+    }
+
+    return tRet;
+}
+
+void RGamer::refreshResult()
+{
+    emit resultsChanged(m_results);
 }

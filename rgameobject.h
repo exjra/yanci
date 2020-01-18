@@ -68,6 +68,8 @@ public slots:
         emit gamersChanged(m_gamers);
     }
 
+    void refreshResults();
+
 private slots:
     void onNewConnection();
 
